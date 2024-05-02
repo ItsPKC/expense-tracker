@@ -1,0 +1,51 @@
+.profile-container{
+    display: grid;
+    place-items: start;
+    width:65%;
+    margin: 50px 50px 0 auto;
+    gap: 30px; 
+    padding-bottom: 15px;
+    border-bottom: 2px solid lightgrey;
+
+}
+
+.profile-heading{
+    width: calc(100%);
+    display: flex;
+    justify-content: space-between;    
+}
+
+.profile-heading > div:nth-child(1){
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+.profile-heading > div:nth-child(2){
+    cursor: pointer;
+    color: red;
+    border: 1px solid red;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.profile-form{
+    width: calc(100%);
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700; 
+}
+
+.profile-form > div > img{
+    margin-right: 10px;
+    height: 18px;
+    width: 18px;
+}
+
+.profile-update-button{ 
+    cursor: pointer;
+    font-size: 0.9em;
+    background-color: rgb(224, 83, 83);
+    color: white;
+    padding: 2px 7px 7px 7px;
+    border-radius: 5px;
+}

@@ -1,0 +1,36 @@
+.header-container{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: calc(100% - 30px);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 2px solid lightgrey;
+    /* display: grid;
+    grid-template-columns: auto auto; */
+}
+
+.header-welcome{
+    font-style: italic;
+}
+
+.header-profile{
+    background-color: rgb(255, 220, 220);
+    padding: 0 10px 3px 10px;
+    border-radius: 5px;
+}
+
+.header-profile-link{
+    text-decoration: none;
+    color: blue;
+}
+
+.header-logout-button{
+    cursor: pointer;
+    border: 1px solid red;
+    padding: 0 6px 5px 6px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: red;
+}
