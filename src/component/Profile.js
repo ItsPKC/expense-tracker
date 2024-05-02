@@ -5,12 +5,16 @@ import profile from "../assets/images/profile-url.svg";
 import {
   AuthContext,
   name,
+  email,
   setname,
   profileUrl as pUrl,
   setprofileUrl,
+  emailVerified,
+  user,
 } from "../config/variable";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
+import { sendEmailVerification } from "firebase/auth";
 
 const Profile = () => {
   const fullName = useRef("");
@@ -29,6 +33,18 @@ const Profile = () => {
       setprofileUrl(pu);
       alert("Data updated successfully !!!");
     });
+  };
+
+  const verifyEmail = async () => {
+    // Send verification email
+    sendEmailVerification(user)
+      .then(() => {
+        console.log("Verification email sent.");
+        alert("Verification email sent.");
+      })
+      .catch((error) => {
+        console.error("Error sending verification email: ", error);
+      });
   };
 
   useEffect(() => {
@@ -51,6 +67,10 @@ const Profile = () => {
           <img alt="profile" src={profile} />
           Profile Photo URL: <input ref={profileUrl} />
         </div>
+      </div>
+      <div>
+        Email : {email}{" "}
+        {!emailVerified && <button onClick={verifyEmail}>Verify</button>}
       </div>
       <div className="profile-update-button" onClick={updateprofile}>
         Update

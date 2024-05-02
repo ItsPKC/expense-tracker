@@ -2,7 +2,12 @@ import React, { useContext, useRef } from "react";
 import "./Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../config/firebaseConfig";
-import { AuthContext, setname, setprofileUrl } from "../config/variable";
+import {
+  AuthContext,
+  setname,
+  setprofileUrl,
+  setemail,
+} from "../config/variable";
 import { doc, getDoc } from "firebase/firestore";
 
 const Login = () => {
@@ -34,6 +39,7 @@ const Login = () => {
         const user = userCredential.user;
         console.log(user);
         setuid(user.uid);
+        setemail(user);
         getData(user.uid);
       })
       .catch((error) => {
@@ -55,7 +61,7 @@ const Login = () => {
           <div className="login-button" onClick={login}>
             Login
           </div>
-          <a href="/login">
+          <a href="/forget-password">
             <center>Forget Password</center>
           </a>
         </div>
