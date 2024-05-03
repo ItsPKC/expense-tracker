@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./ForgetPassword.css";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../config/firebaseConfig";
+import { AuthContext } from "../config/variable";
 
 const ForgetPassword = () => {
+  const { dispatch } = useContext(AuthContext);
   const email = useRef("");
   const reset = () => {
     try {
@@ -20,6 +22,9 @@ const ForgetPassword = () => {
         <h3>Forget Password</h3>
         Email : <input placeholder="Enter email" ref={email} />
         <button onClick={reset}>Send Reset Link</button>
+        <br></br>
+        <br></br>
+        <button onClick={() => dispatch("login")}> Go back</button>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import { setDoc, doc, addDoc, collection } from "firebase/firestore";
 const Signup = () => {
   const email = useRef("");
   const password = useRef("");
-  const { uid, setuid, setisLogin } = useContext(AuthContext);
+  const { uid, setuid, dispatch } = useContext(AuthContext);
 
   const createuser = async (currentuid) => {
     try {
@@ -61,7 +61,7 @@ const Signup = () => {
         <div
           className="go-to-signup"
           onClick={() => {
-            setisLogin(true);
+            dispatch("login");
           }}
         >
           Have an account? Login

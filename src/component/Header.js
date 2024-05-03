@@ -13,11 +13,14 @@ const Header = () => {
       setuid("");
       setname("");
       setprofileUrl("");
+      sessionStorage.removeItem("uid");
     });
   };
   return (
     <div className="header-container">
-      <div className="header-welcome">Welcome to Expense Tracker!!!</div>
+      <Link to="/" className="header-welcome">
+        Welcome to Expense Tracker!!!
+      </Link>
       <div className="header-profile">
         Your profile is Incomplete.
         <Link to="/profile" className="header-profile-link">

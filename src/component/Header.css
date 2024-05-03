@@ -13,6 +13,9 @@
 
 .header-welcome{
     font-style: italic;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
 }
 
 .header-profile{

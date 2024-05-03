@@ -13,7 +13,7 @@ import { doc, getDoc } from "firebase/firestore";
 const Login = () => {
   const email = useRef("");
   const password = useRef("");
-  const { setuid, setisLogin } = useContext(AuthContext);
+  const { setuid, dispatch } = useContext(AuthContext);
 
   const getData = async (uid) => {
     console.log(uid);
@@ -61,11 +61,15 @@ const Login = () => {
           <div className="login-button" onClick={login}>
             Login
           </div>
-          <a href="/forget-password">
+          <div
+            onClick={() => {
+              dispatch("forget-password");
+            }}
+          >
             <center>Forget Password</center>
-          </a>
+          </div>
         </div>
-        <div className="go-to-signup" onClick={() => setisLogin(false)}>
+        <div className="go-to-signup" onClick={() => dispatch("signup")}>
           Didn't have an account? Signup
         </div>
       </div>
